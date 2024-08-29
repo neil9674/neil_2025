@@ -188,3 +188,5 @@ hide: true
     sprite.style.transform = `scale(${0.2 * scale})`;
     mario.startResting();
   });
+
+</script>
