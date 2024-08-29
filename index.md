@@ -190,7 +190,3 @@ hide: true
 ## Github Page
 
 > This is Neil's github page (neil_2025)
-
-![csa]({{site.baseurl}}/images/course-brag/csa24.png)
-
-![qr]({{site.baseurl}}/images/course-brag/qr.png)
