@@ -39,7 +39,7 @@ hide: true
   }
 </style>
 
-<!--- Embedded executable code--->
+<!--- Embedded executable cod--->
 <script>
   ////////// convert YML hash to javascript key:value objects /////////
 
