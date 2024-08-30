@@ -188,18 +188,15 @@ hide: true
 </script>
 
 ## **Github Page**
-##
 
-> This is Neil's github page (neil_2025). I am a high school student at Del Norte High School, and I currently in 10th grade.
+> This is Neil's github page (neil_2025). I am a high school student at Del Norte High School, and I am currently in 10th grade.
 
-##
 ---
-##
 
 ### Interests
-###
 
 > I like playing badminton and I am in the school Badminton team.
 > I'm also a Life Scout in BSA, and I really enjoy camping and the outdoors.
 > I also compete in Cyber Security competitions, and I am in the local Digital Security club.
 > Lastly, I like following soccer.
+
