@@ -9,6 +9,9 @@ hide: true
 
 <!-- Liquid:  statements -->
 
+<!-- Include submenu from _includes to top of pages -->
+<!--- Concatenation of site URL to frontmatter image  --->
+{% assign sprite_file = site.baseurl | append: page.image %}
 <!--- Has is a list variable containing mario metadata for sprite --->
 {% assign hash = site.data.mario_metadata %}  
 <!--- Size width/height of Sprit images --->
@@ -39,7 +42,7 @@ hide: true
   }
 </style>
 
-<!--- Embedded executable cod--->
+<!--- Embedded executable code--->
 <script>
   ////////// convert YML hash to javascript key:value objects /////////
 
@@ -187,7 +190,7 @@ hide: true
 
 </script>
 
-## **Github Page**
+## **Github Home** 🏠
 
 > This is Neil's github page (neil_2025). I am a high school student at Del Norte High School, and I am currently in 10th grade.
 
