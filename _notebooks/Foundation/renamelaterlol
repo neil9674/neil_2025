@@ -1,0 +1,3 @@
+#!pip install emoji
+from emoji import emojize 
+print(emojize(":thumbs_up: Hi, this is a test for Emoji Hacks! :fire: :100: :smile:"))
