@@ -1,4 +1,7 @@
 ---
-comments: false
+layout: post
 title: jupyternotebook_hacks
-description: 
+description: Sprint 1 hacks for Jupyter Notbooks
+author: Neil Chandra
+hide: true
+---
