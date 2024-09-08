@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Frontend Hacks (Hello World)
-courses: { csse: {week: 0}, csp: {week: 0 }, csa: {week: 0}}
-type: ccc
+type: issues
 toc: true
 ---
 
