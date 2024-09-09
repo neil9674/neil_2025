@@ -11,7 +11,7 @@ description: This is a Cookie Clicker that was made for the Pair Programming Pro
     <p> Click the cookie as many times as possible, you can see your score on the left of the cookie. Have fun. </p>
 </div>
 
-<img alt="describe image" src="{{site.baseurl}}/workspaces/neil_2025/images/cookie.png" width="100" height="200">
+<img src="cookie.png">
 <p>Image clicked <span id="clickCount">0</span> times.</p>
 
 <script>
