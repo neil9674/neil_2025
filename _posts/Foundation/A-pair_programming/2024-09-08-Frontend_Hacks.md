@@ -3,6 +3,7 @@ layout: post
 title: Frontend Hacks - Neil C
 type: issues
 toc: true
+description: This is for the basic HTML Frontend Hacks assignment provided.
 ---
 
 <div>
