@@ -4,6 +4,7 @@ title: Pair Programming (Cookie Clicker) - Neil C
 type: issues
 toc: true
 description: This is a Cookie Clicker that was made for the Pair Programming Project. I collaborated with my peer and asked them for feedback on this code.
+comments: true
 ---
 
 <div>
