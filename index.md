@@ -192,6 +192,9 @@ hide: true
 
 ## **Home** 🏠
 
+### Wikipedia Embed for Help
+<embed src="https://www.wikipedia.org/" style="width:1000px; height: 500px;">
+
 ### Sprint 1; Weeks 0 - 3
 > - [Jupyter Notebook Hacks](https://neil9674.github.io/neil_2025/2024/09/08/Jupyter-Notebook-Hack_IPYNB_2_.html)
 > - [Pair Programming Project](https://neil9674.github.io/neil_2025/2024/09/08/Cookie_Clicker-(PairProject).html)
