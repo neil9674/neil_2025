@@ -7,6 +7,8 @@ image: /images/mario_animation.png
 hide: true
 ---
 
+{% include nav/home.html %}
+
 <!-- Liquid:  statements -->
 
 <!-- Include submenu from _includes to top of pages -->
@@ -192,8 +194,8 @@ hide: true
 
 ## **Home** 🏠
 
-### Wikipedia Embed for Help
-<embed src="https://www.wikipedia.org/" style="width:1000px; height: 500px;">
+### Nighthawk CSP Embed for Help
+<embed src="https://nighthawkcoders.github.io/portfolio_2025/navigation/section/csp" style="width:1000px; height: 500px;">
 
 ### Sprint 1; Weeks 0 - 3
 > - [Jupyter Notebook Hacks](https://neil9674.github.io/neil_2025/2024/09/08/Jupyter-Notebook-Hack_IPYNB_2_.html)
