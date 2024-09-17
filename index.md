@@ -194,8 +194,8 @@ hide: true
 
 ## **Home** 🏠
 
-### Nighthawk CSP Embed for Help
-<embed src="https://nighthawkcoders.github.io/portfolio_2025/navigation/section/csp" style="width:1000px; height: 500px;">
+### Nighthawk CSP Link for Help 💻
+<a href="https://nighthawkcoders.github.io/portfolio_2025/navigation/section/csp">Visit the Nighthawk CSP Page</a>
 
 ### Sprint 1; Weeks 0 - 3
 > - [Jupyter Notebook Hacks](https://neil9674.github.io/neil_2025/2024/09/08/Jupyter-Notebook-Hack_IPYNB_2_.html)
