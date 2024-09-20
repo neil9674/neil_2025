@@ -12,8 +12,9 @@ hide: true
 ## Ideas 💡
 
 ### Sprint 1
-| Idea      | Accomplishment  |
-|--------------|-----------------|
-| Cookie Clicker with emojis appearing over page| Simplistic cookie clicker with emojis |
-| Snake Game with challenge option| Snake game with full disappearing capability/option |
-| Change SASS for leaf theme to be cyan | SASS changed succesfully to neon cyan  |
+
+| Idea                                        | Accomplishment                                    |
+|---------------------------------------------|---------------------------------------------------|
+| Cookie Clicker with emojis appearing over page | Simplistic cookie clicker with emojis              |
+| Snake Game with challenge option            | Snake game with full disappearing capability/option|
+| Change SASS for leaf theme to be cyan       | SASS changed successfully to neon cyan            |
