@@ -116,9 +116,9 @@ hide: true
             </p>
             <p>Background Color:
                 <input id="bgBlack" type="radio" name="background" value="black" checked/>
-                <label for="bgBlack">Black</label>
+                <label for="bgBlack">White</label>
                 <input id="bgWhite" type="radio" name="background" value="white"/>
-                <label for="bgWhite">White</label>
+                <label for="bgWhite">Black</label>
             </p>
         </div>
     </div>
