@@ -120,6 +120,12 @@ hide: true
                 <input id="bgWhite" type="radio" name="background" value="white"/>
                 <label for="bgWhite">Black</label>
             </p>
+            <p>Snake Disappearing Mode:
+                <input id="disappearOff" type="radio" name="disappear" value="0" checked/>
+                <label for="disappearOff">Off</label>
+                <input id="disappearOn" type="radio" name="disappear" value="1"/>
+                <label for="disappearOn">On</label>
+            </p>
         </div>
     </div>
 </div>
@@ -138,6 +144,7 @@ hide: true
         const speed_setting = document.getElementsByName("speed");
         const wall_setting = document.getElementsByName("wall");
         const background_setting = document.getElementsByName("background");  // Added background setting
+        const disappear_setting = document.getElementsByName("disappear");  // Snake disappearing setting
         // HTML Screen IDs (div)
         const SCREEN_MENU = -1, SCREEN_GAME_OVER=1, SCREEN_SETTING=2;
         const screen_menu = document.getElementById("menu");
@@ -167,6 +174,7 @@ hide: true
         const changeSnakeColorInterval = 10000;  // 10 seconds in milliseconds
         const disappearDuration = 2000;          // Snake disappearance for 2 seconds
         let isSnakeVisible = true;   // Track snake visibility
+        let snakeDisappearing = false;  // Default is no snake disappearing
 
         /* Display Control */
         /////////////////////////////////////////////////////////////
@@ -238,6 +246,17 @@ hide: true
                 });
             }
 
+            // Snake disappearing mode setting
+            for (let i = 0; i < disappear_setting.length; i++) {
+                disappear_setting[i].addEventListener("click", function() {
+                    for (let j = 0; j < disappear_setting.length; j++) {
+                        if (disappear_setting[j].checked) {
+                            setSnakeDisappearing(disappear_setting[j].value);
+                        }
+                    }
+                });
+            }
+
             // activate window events
             window.addEventListener("keydown", function(evt) {
                 // spacebar detected
@@ -301,14 +320,16 @@ hide: true
                 activeDot(food.x, food.y);
             }
 
-            // Timer for snake disappearing
-            colorChangeTimer += snake_speed;
-            if (colorChangeTimer >= changeSnakeColorInterval) {
-                isSnakeVisible = false;  // Hide snake
-                setTimeout(function() {
-                    isSnakeVisible = true;  // Show snake after 2 seconds
-                    colorChangeTimer = 0;
-                }, disappearDuration);
+            // Timer for snake disappearing if the mode is active
+            if (snakeDisappearing) {
+                colorChangeTimer += snake_speed;
+                if (colorChangeTimer >= changeSnakeColorInterval) {
+                    isSnakeVisible = false;  // Hide snake
+                    setTimeout(function() {
+                        isSnakeVisible = true;  // Show snake after 2 seconds
+                        colorChangeTimer = 0;
+                    }, disappearDuration);
+                }
             }
 
             // Repaint canvas
@@ -433,6 +454,11 @@ hide: true
                 wallColor = "#000000";   // Wall is black
             }
             screen_snake.style.borderColor = wallColor;
+        }
+
+        // Set snake disappearing mode
+        let setSnakeDisappearing = function(disappear_value) {
+            snakeDisappearing = disappear_value === "1";
         }
 
     })();

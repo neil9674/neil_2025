@@ -10,3 +10,6 @@ hide: true
 {% include nav/home.html %}
 
 ## Ideas 💡
+
+### Sprint 1
+> 
