@@ -114,6 +114,12 @@ hide: true
                 <input id="walloff" type="radio" name="wall" value="0"/>
                 <label for="walloff">Off</label>
             </p>
+            <p>Background Color:
+                <input id="bgBlack" type="radio" name="background" value="black" checked/>
+                <label for="bgBlack">Black</label>
+                <input id="bgWhite" type="radio" name="background" value="white"/>
+                <label for="bgWhite">White</label>
+            </p>
         </div>
     </div>
 </div>
@@ -131,6 +137,7 @@ hide: true
         const ele_score = document.getElementById("score_value");
         const speed_setting = document.getElementsByName("speed");
         const wall_setting = document.getElementsByName("wall");
+        const background_setting = document.getElementsByName("background");  // Added background setting
         // HTML Screen IDs (div)
         const SCREEN_MENU = -1, SCREEN_GAME_OVER=1, SCREEN_SETTING=2;
         const screen_menu = document.getElementById("menu");
@@ -152,12 +159,13 @@ hide: true
         let food = {x: 0, y: 0};
         let score;
         let wall;
+        let background_color = "black";  // Default background color
+        let snakeColor = "#FFFFFF";  // Default snake color
+        let colorChangeTimer = 0;  // Timer for snake color change
+        const changeSnakeColorInterval = 10000;  // 10 seconds in milliseconds
+
         /* Display Control */
         /////////////////////////////////////////////////////////////
-        // 0 for the game
-        // 1 for the main menu
-        // 2 for the settings screen
-        // 3 for the game over screen
         let showScreen = function(screen_opt){
             SCREEN = screen_opt;
             switch(screen_opt){
@@ -181,6 +189,7 @@ hide: true
                     break;
             }
         }
+
         /* Actions and Events  */
         /////////////////////////////////////////////////////////////
         window.onload = function(){
@@ -212,6 +221,19 @@ hide: true
                     }
                 });
             }
+
+            // Background color setting
+            setBackground("black");  // Default background color
+            for (let i = 0; i < background_setting.length; i++) {
+                background_setting[i].addEventListener("click", function() {
+                    for (let j = 0; j < background_setting.length; j++) {
+                        if (background_setting[j].checked) {
+                            setBackground(background_setting[j].value);
+                        }
+                    }
+                });
+            }
+
             // activate window events
             window.addEventListener("keydown", function(evt) {
                 // spacebar detected
@@ -219,6 +241,7 @@ hide: true
                     newGame();
             }, true);
         }
+
         /* Snake is on the Go (Driver Function)  */
         /////////////////////////////////////////////////////////////
         let mainLoop = function(){
@@ -273,21 +296,32 @@ hide: true
                 addFood();
                 activeDot(food.x, food.y);
             }
+
+            // Change snake color every 10 seconds
+            colorChangeTimer += snake_speed;
+            if (colorChangeTimer >= changeSnakeColorInterval) {
+                snakeColor = canvas.style.backgroundColor;
+                colorChangeTimer = 0;
+            }
+
             // Repaint canvas
             ctx.beginPath();
-            ctx.fillStyle = "royalblue";
+            ctx.fillStyle = canvas.style.backgroundColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
+
             // Paint snake
             for(let i = 0; i < snake.length; i++){
+                ctx.fillStyle = snakeColor;
                 activeDot(snake[i].x, snake[i].y);
             }
+
             // Paint food
             activeDot(food.x, food.y);
-            // Debug
-            //document.getElementById("debug").innerHTML = snake_dir + " " + snake_next_dir + " " + snake[0].x + " " + snake[0].y;
+
             // Recursive call after speed delay, déjà vu
             setTimeout(mainLoop, snake_speed);
         }
+
         /* New Game setup */
         /////////////////////////////////////////////////////////////
         let newGame = function(){
@@ -309,6 +343,7 @@ hide: true
             }
             mainLoop();
         }
+
         /* Key Inputs and Actions */
         /////////////////////////////////////////////////////////////
         let changeDir = function(key){
@@ -332,12 +367,13 @@ hide: true
                     break;
             }
         }
+
         /* Dot for Food or Snake part */
         /////////////////////////////////////////////////////////////
         let activeDot = function(x, y){
-            ctx.fillStyle = "#FFFFFF";
             ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
         }
+
         /* Random food placement */
         /////////////////////////////////////////////////////////////
         let addFood = function(){
@@ -349,29 +385,37 @@ hide: true
                 }
             }
         }
+
         /* Collision Detection */
         /////////////////////////////////////////////////////////////
         let checkBlock = function(x, y, _x, _y){
             return (x === _x && y === _y);
         }
+
         /* Update Score */
         /////////////////////////////////////////////////////////////
         let altScore = function(score_val){
             ele_score.innerHTML = String(score_val);
         }
+
         /////////////////////////////////////////////////////////////
         // Change the snake speed...
-        // 150 = slow
-        // 100 = normal
-        // 50 = fast
         let setSnakeSpeed = function(speed_value){
             snake_speed = speed_value;
         }
+
         /////////////////////////////////////////////////////////////
         let setWall = function(wall_value){
             wall = wall_value;
             if(wall === 0){screen_snake.style.borderColor = "#606060";}
             if(wall === 1){screen_snake.style.borderColor = "#FFFFFF";}
         }
+
+        // Set background color
+        let setBackground = function(color_value){
+            canvas.style.backgroundColor = color_value;
+            ctx.fillStyle = color_value;
+        }
+
     })();
 </script>
