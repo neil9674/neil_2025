@@ -161,8 +161,12 @@ hide: true
         let wall;
         let background_color = "black";  // Default background color
         let snakeColor = "#FFFFFF";  // Default snake color
-        let colorChangeTimer = 0;  // Timer for snake color change
+        let foodColor = "#FFFFFF";   // Default food color
+        let wallColor = "#FFFFFF";   // Default wall color
+        let colorChangeTimer = 0;    // Timer for snake disappearance
         const changeSnakeColorInterval = 10000;  // 10 seconds in milliseconds
+        const disappearDuration = 2000;          // Snake disappearance for 2 seconds
+        let isSnakeVisible = true;   // Track snake visibility
 
         /* Display Control */
         /////////////////////////////////////////////////////////////
@@ -297,11 +301,14 @@ hide: true
                 activeDot(food.x, food.y);
             }
 
-            // Change snake color every 10 seconds
+            // Timer for snake disappearing
             colorChangeTimer += snake_speed;
             if (colorChangeTimer >= changeSnakeColorInterval) {
-                snakeColor = canvas.style.backgroundColor;
-                colorChangeTimer = 0;
+                isSnakeVisible = false;  // Hide snake
+                setTimeout(function() {
+                    isSnakeVisible = true;  // Show snake after 2 seconds
+                    colorChangeTimer = 0;
+                }, disappearDuration);
             }
 
             // Repaint canvas
@@ -309,13 +316,16 @@ hide: true
             ctx.fillStyle = canvas.style.backgroundColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Paint snake
-            for(let i = 0; i < snake.length; i++){
-                ctx.fillStyle = snakeColor;
-                activeDot(snake[i].x, snake[i].y);
+            // Paint snake if visible
+            if (isSnakeVisible) {
+                for(let i = 0; i < snake.length; i++){
+                    ctx.fillStyle = snakeColor;
+                    activeDot(snake[i].x, snake[i].y);
+                }
             }
 
             // Paint food
+            ctx.fillStyle = foodColor;
             activeDot(food.x, food.y);
 
             // Recursive call after speed delay, déjà vu
@@ -407,14 +417,22 @@ hide: true
         /////////////////////////////////////////////////////////////
         let setWall = function(wall_value){
             wall = wall_value;
-            if(wall === 0){screen_snake.style.borderColor = "#606060";}
-            if(wall === 1){screen_snake.style.borderColor = "#FFFFFF";}
+            screen_snake.style.borderColor = wallColor;
         }
 
-        // Set background color
+        // Set background color and corresponding elements
         let setBackground = function(color_value){
             canvas.style.backgroundColor = color_value;
-            ctx.fillStyle = color_value;
+            if (color_value === "black") {
+                snakeColor = "#FFFFFF";  // Snake is white
+                foodColor = "#FFFFFF";   // Food is white
+                wallColor = "#FFFFFF";   // Wall is white
+            } else {
+                snakeColor = "#000000";  // Snake is black
+                foodColor = "#000000";   // Food is black
+                wallColor = "#000000";   // Wall is black
+            }
+            screen_snake.style.borderColor = wallColor;
         }
 
     })();
