@@ -104,6 +104,7 @@ comments: true
 ### Fun
 > I like playing video games, and listening to music.
 
+<p> </p>
 <script src="https://utteranc.es/client.js"
         repo="neil9674/neil_2025"
         issue-term="title"
@@ -112,3 +113,4 @@ comments: true
         crossorigin="anonymous"
         async>
 </script>
+<p> </p>
