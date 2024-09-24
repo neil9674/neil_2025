@@ -31,7 +31,7 @@ comments: true
     font-size: 1.5em;
     margin-top: 20px;
 }
-.color-selection {
+.options {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -43,7 +43,14 @@ select {
 }
 </style>
 
-<div class="color-selection">
+<div class="options">
+    <div>
+        <label for="game-mode">Select Game Mode: </label>
+        <select id="game-mode">
+            <option value="player">Two Players</option>
+            <option value="computer">Play Against Computer</option>
+        </select>
+    </div>
     <div>
         <label for="x-color">Select X Color: </label>
         <select id="x-color">
@@ -90,12 +97,19 @@ const oColorSelect = document.getElementById('o-color');
 let xColor = xColorSelect.value;
 let oColor = oColorSelect.value;
 
+const gameModeSelect = document.getElementById('game-mode');
+let gameMode = gameModeSelect.value;
+
 xColorSelect.addEventListener('change', () => {
     xColor = xColorSelect.value;
 });
 
 oColorSelect.addEventListener('change', () => {
     oColor = oColorSelect.value;
+});
+
+gameModeSelect.addEventListener('change', () => {
+    gameMode = gameModeSelect.value;
 });
 
 const winningConditions = [
@@ -121,6 +135,23 @@ function checkWinner() {
     return null;
 }
 
+function computerMove() {
+    let availableMoves = board.map((val, idx) => val === null ? idx : null).filter(val => val !== null);
+    if (availableMoves.length > 0) {
+        const randomMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
+        board[randomMove] = 'O';
+        cells[randomMove].textContent = 'O';
+        cells[randomMove].style.color = oColor;
+
+        const winner = checkWinner();
+        if (winner) {
+            message.textContent = winner === 'Draw' ? "It's a draw!" : `${winner} wins!`;
+        } else {
+            currentPlayer = 'X';
+        }
+    }
+}
+
 function handleClick(e) {
     const index = e.target.dataset.index;
     if (!isGameActive || board[index]) return;
@@ -133,7 +164,12 @@ function handleClick(e) {
     if (winner) {
         message.textContent = winner === 'Draw' ? "It's a draw!" : `${winner} wins!`;
     } else {
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        if (gameMode === 'computer' && currentPlayer === 'X') {
+            currentPlayer = 'O';
+            setTimeout(computerMove, 500);  // Let the computer make its move after a short delay
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
     }
 }
 
