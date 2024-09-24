@@ -197,7 +197,7 @@ hide: true
 ### Nighthawk CSP Link for Help 💻
 <a href="https://nighthawkcoders.github.io/portfolio_2025/navigation/section/csp">Visit the Nighthawk CSP Page</a>
 
-### Sprint 1; Weeks 0 - 3
+### [Sprint 1](https://neil9674.github.io/neil_2025/2024/08/21/sprint1_plan_IPYNB_2_.html); Weeks 0 - 3
 > - [Jupyter Notebook Hacks](https://neil9674.github.io/neil_2025/2024/09/08/Jupyter-Notebook-Hack_IPYNB_2_.html)
 > - [Pair Programming Project](https://neil9674.github.io/neil_2025/2024/09/08/Cookie_Clicker-(PairProject).html)
 > - [Tools and Equipment Play Hacks](https://neil9674.github.io/neil_2025/2024/09/08/Tools_Equipment_Play-Hack_IPYNB_2_.html)
