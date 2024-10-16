@@ -197,7 +197,7 @@ hide: true
 ### Nighthawk CSP Link for Help 💻
 <a href="https://nighthawkcoders.github.io/portfolio_2025/navigation/section/csp">Visit the Nighthawk CSP Page</a>
 
-### Sprint 2
+### [Sprint 2 Final Project](https://neil9674.github.io/neil_2025/2024/10/16/Connect4_Game_IPYNB_2_.html)
 
 <style>
     #summaryTable {
